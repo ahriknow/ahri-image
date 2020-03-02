@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+    <style>
+        body {
+            width: 100%;
+        }
+
+        .form {
+            height: 300px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 5px #999;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        label {
+            width: 100%;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<form class="form" action="/image/upload" method="post" enctype="multipart/form-data">
+    <label>库名
+        <input type="text" name="store">
+    </label>
+    <label>序号
+        <input type="text" name="index">
+    </label>
+    <label>图片
+        <input type="file" name="file">
+    </label>
+    <label>上传
+        <input type="submit" value="上传"/>
+    </label>
+</form>
+</body>
+</html>

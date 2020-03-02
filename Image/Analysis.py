@@ -1,5 +1,3 @@
-from random import choice
-
 from PIL import ImageFont
 
 
@@ -13,7 +11,14 @@ def analysis(obj):
     params['texts'] = text(obj)
     params['store'] = store(obj)
     params['point'] = point(obj)
+    params['opacity'] = opacity(obj)
     return params
+
+
+def opacity(obj):
+    if a := o if (o := obj.get('a')) else None:
+        return op if 0 <= (op := int(a)) <= 255 else None
+    return None
 
 
 def store(obj):
@@ -21,15 +26,9 @@ def store(obj):
     if bg:
         if len(bg) >= 2:
             bg_args = [bg[0], bg[1]]
-            if bg_args[0] not in ['scenery']:
-                bg_args[0] = choice(['scenery'])
-            if bg_args[1] not in ['1', '2', '3']:
-                bg_args[1] = choice(['1', '2', '3'])
             return bg_args
         if len(bg) >= 1:
-            bg_args = [bg[0], choice(['1', '2', '3'])]
-            if bg_args[0] not in ['scenery']:
-                bg_args[0] = choice(['scenery'])
+            bg_args = [bg[0], '0']
             return bg_args
     else:
         return None
@@ -100,8 +99,8 @@ def text(obj):
     texts = list()
     if texts_args := obj.get('texts'):
         text_args = texts_args.split(';')
-        # ttf = '/home/ahri/code/AhriImage/Image/font.ttf'
-        ttf = '/project/Image/font.ttf'
+        ttf = '/home/ahri/code/AhriImage/Image/font.ttf'
+        # ttf = '/project/Image/font.ttf'
         for i in text_args:
             text_arg = i.split(',')
             if len(text_arg) >= 7:

@@ -48,8 +48,6 @@ Werkzeug==1.0.0
 
 ## How to use
 
-## About Me!
-
 `Get http://ip:port/?<option>=<args>&...`
 
 | option      | args                              | explain                                                                                 | other             |
@@ -62,8 +60,11 @@ Werkzeug==1.0.0
 | rectangles  | 300,300,400,400,150,150,150,0,0,0 | 起点 x,起点 y,终点 x,终点 y,填充 RED,填充 GREEN,填充 BLUE,边框 RED,边框 GREEN,边框 BLUE | 多个矩形以`;`分隔 |
 | texts       | 200,200,text,0,0,100,50           | 起点 x,起点 y,文本内容(暂时不支持包含`,`和`;`),填充 RED,填充 GREEN,填充 BLUE,字体大小   | 多个文本以`;`分隔 |
 | point       | 0.5                               | 图片明暗                                                                                | > 0               |
-| store       | scenery,3                         | 图片库名,图片编号                                                                       | 不传编号则随机    |
+| opacity     | 100                               | 图片透明度                                                                              | 0 <= \$ <= 255    |
+| store       | scenery,3                         | 图片库名,图片编号                                                                       | 不存在则默认      |
 
-### 更多参数以及更多图片库待续
+## Upload to Store
 
-## Auth ahri 20200301
+`Get http://ip:port/image/uplad`
+
+## Auth ahri 20200302
