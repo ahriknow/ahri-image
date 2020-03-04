@@ -12,6 +12,7 @@ def analysis(obj):
     params['store'] = store(obj)
     params['point'] = point(obj)
     params['opacity'] = opacity(obj)
+    params['original'] = o if (o := obj.get('original')) else False
     return params
 
 
@@ -99,8 +100,8 @@ def text(obj):
     texts = list()
     if texts_args := obj.get('texts'):
         text_args = texts_args.split(';')
-        ttf = '/home/ahri/code/AhriImage/Image/font.ttf'
-        # ttf = '/project/Image/font.ttf'
+        # ttf = '/home/ahri/code/AhriImage/Image/font.ttf'
+        ttf = '/project/Image/font.ttf'
         for i in text_args:
             text_arg = i.split(',')
             if len(text_arg) >= 7:

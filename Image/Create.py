@@ -17,7 +17,8 @@ def get_image(params):
         conn.close()
         if values:
             img = Image.open(BytesIO(values[0]))
-            img = img.resize(params['size'], Image.ANTIALIAS)
+            if not params['original'] or params['original'] == 'false':
+                img = img.resize(params['size'], Image.ANTIALIAS)
 
     # if params['store']:
     #     response = requests.get(

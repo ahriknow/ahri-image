@@ -1,3 +1,6 @@
 .idea
 .vscode
 venv
+traineddata
+!traineddata/chi_sim.traineddata
+!traineddata/eng.traineddata
