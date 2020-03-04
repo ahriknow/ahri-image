@@ -1,6 +1,7 @@
 # Ahri Image
 
 ## Get pictures by HTTP request.
+## Tesseract-OCR
 
 ## Build the image
 
@@ -12,6 +13,9 @@ ADD app.py /project/app.py
 ADD Image /project/Image
 ADD requirements.txt /project/requirements.txt
 COPY pip.conf /etc/pip.conf
+COPY ./traineddata/chi_sim.traineddata /usr/share/tesseract-ocr/4.00/tessdata/
+COPY ./traineddata/eng.traineddata /usr/share/tesseract-ocr/4.00/tessdata/
+COPY pip.conf /etc/pip.conf
 WORKDIR /project
 RUN pip3 install --no-cache-dir -r requirements.txt
 EXPOSE 9000
@@ -21,7 +25,7 @@ ENTRYPOINT ["gunicorn", "-w", "2", "-b", "0.0.0.0:9000", "app:app"]
 ## Run a container
 
 ```bash
-docker container run --name image -p 80:9000 -d ahriknow/image:v20200301
+docker container run --name image -p 80:9000 -d ahriknow/image:v20200304
 ```
 
 -   `--name image` 容器名为 image
@@ -68,12 +72,21 @@ Werkzeug==1.0.0
 
 ## Upload to Store
 
-`POST http://ip:port/image/uplad`
+`POST http://ip:port/image/upload`
 
-| params | explain |
-| ------ | ------- |
-| file   | image   |
-| store  | 库名    |
-| index  | 索引    |
+| params | explain | other     |
+| ------ | ------- | --------- |
+| file   | image   | form-data |
+| store  | 库名    |           |
+| index  | 索引    |           |
 
-## Auth ahri 20200302
+## Tesseract-OCR
+
+`POST http://ip:port/image/ocr`
+
+| params | explain | other       |
+| ------ | ------- | ----------- |
+| file   | 图片    | form-data   |
+| lang   | 语言    | chi_sim/eng |
+
+## Auth ahri 20200304

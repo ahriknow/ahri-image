@@ -5,8 +5,8 @@ ADD app.py /project/app.py
 ADD Image /project/Image
 ADD requirements.txt /project/requirements.txt
 COPY pip.conf /etc/pip.conf
-COPY ./traineddata/chi_sim.traineddata /usr/share/tessdata/
-COPY ./traineddata/eng.traineddata /usr/share/tessdata/
+COPY ./traineddata/chi_sim.traineddata /usr/share/tesseract-ocr/4.00/tessdata/
+COPY ./traineddata/eng.traineddata /usr/share/tesseract-ocr/4.00/tessdata/
 COPY pip.conf /etc/pip.conf
 WORKDIR /project
 RUN pip3 install --no-cache-dir -r requirements.txt
