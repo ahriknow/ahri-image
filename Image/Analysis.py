@@ -13,12 +13,28 @@ def analysis(obj):
     params['point'] = point(obj)
     params['opacity'] = opacity(obj)
     params['original'] = o if (o := obj.get('original')) else False
+    params['colour'] = colour(obj)
+    params['album'] = album(obj)
     return params
 
 
 def opacity(obj):
     if a := o if (o := obj.get('a')) else None:
         return op if 0 <= (op := int(a)) <= 255 else None
+    return None
+
+
+def album(obj):
+    data = params.split(',') if (params := obj.get('album')) else None
+    if data and len(data) >= 2:
+        return [data[0], data[1]]
+    return None
+
+
+def colour(obj):
+    data = params.split(',') if (params := obj.get('colour')) else None
+    if data and len(data) >= 7:
+        return [int(data[0]), (int(data[1]), int(data[2]), int(data[3])), (int(data[4]), int(data[5]), int(data[6]))]
     return None
 
 
