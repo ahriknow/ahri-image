@@ -2,11 +2,13 @@
 
 ## Get pictures through HTTP request. Custom text, graphics, colors, etc.
 
+### [Demo https://api.ahriknow.com/image/](https://api.ahriknow.com/image/)
+
 ## Provide picture library
 
 | 图片库名       | 图片数量 |
 | -------------- | -------- |
-| girl           | 4111     |
+| girl           | 4110     |
 | Coming soon... | --       |
 
 ## Build the image
@@ -83,5 +85,15 @@ Werkzeug==1.0.0
 | file   | image   | form-data |
 | store  | 库名    |           |
 | index  | 索引    |           |
+
+## Example
+
+-   渐变色 `https://api.ahriknow.com/image?w=600&h=400&colour=2,254,1,254,0,245,246`
+
+    !["渐变色"](https://api.ahriknow.com/image?w=800&h=400&colour=2,254,1,254,0,245,246)
+
+-   图片库 `https://api.ahriknow.com/image?album=girl,1`
+
+    !["图片库"](https://api.ahriknow.com/image?album=girl,1)
 
 ## Powered By ahri 20200327
