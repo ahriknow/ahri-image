@@ -5,14 +5,6 @@ from PIL import Image, ImageDraw
 from io import BytesIO
 
 
-def get_resource(url):
-    es = ['.jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG']
-    for i in es:
-        if response := requests.get(url + i):
-            return response.content
-    return False
-
-
 def get_image(params):
     img = Image.new('RGB', params['size'], params['rgb'])
 
@@ -30,9 +22,9 @@ def get_image(params):
             if params['original'] and params['original'] == 'false':
                 img = img.resize(params['size'], Image.ANTIALIAS)
     elif params['album']:
-        url = f"http://image.aaahri.cn/{params['album'][0]}/{params['album'][1]}"
-        if content := get_resource(url):
-            img = Image.open(BytesIO(content))
+        url = f"http://ahri-image.ahriknow.com/{params['album'][0]}/{params['album'][1]}.png"
+        if response := requests.get(url):
+            img = Image.open(BytesIO(response.content))
             if params['original'] and params['original'] == 'false':
                 img = img.resize(params['size'], Image.ANTIALIAS)
 

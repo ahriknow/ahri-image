@@ -1,6 +1,13 @@
 # Ahri Image
 
-## Get pictures by HTTP request.
+## Get pictures through HTTP request. Custom text, graphics, colors, etc.
+
+## Provide picture library
+
+| 图片库名       | 图片数量 |
+| -------------- | -------- |
+| girl           | 4111     |
+| Coming soon... | --       |
 
 ## Build the image
 
@@ -11,7 +18,6 @@ ADD app.py /project/app.py
 ADD Image /project/Image
 ADD requirements.txt /project/requirements.txt
 COPY pip.conf /etc/pip.conf
-COPY pip.conf /etc/pip.conf
 WORKDIR /project
 RUN pip3 install --no-cache-dir -r requirements.txt
 EXPOSE 9000
@@ -21,13 +27,13 @@ ENTRYPOINT ["gunicorn", "-w", "2", "-b", "0.0.0.0:9000", "app:app"]
 ## Run a container
 
 ```bash
-docker container run --name image -p 80:9000 -d ahriknow/image:v20200320
+docker container run --name image -p 80:9000 -d ahriknow/image:v20200327
 ```
 
 -   `--name image` 容器名为 image
 -   `-p 80:9000` 将容器 9000 端口映射到宿主机 80 端口
 -   `-d` 后台运行
--   `ahriknow/image:v20200320` 镜像
+-   `ahriknow/image:v20200327` 镜像
 
 ## Python requirements.txt
 
@@ -50,7 +56,7 @@ Werkzeug==1.0.0
 
 ## How to use
 
-`Get http://ip:port/?<option>=<args>&...`
+`Get http://ip:port/image/?<option>=<args>&...`
 
 | option      | args                              | explain                                                                                 | other                            |
 | ----------- | --------------------------------- | --------------------------------------------------------------------------------------- | -------------------------------- |
@@ -78,4 +84,4 @@ Werkzeug==1.0.0
 | store  | 库名    |           |
 | index  | 索引    |           |
 
-## Powered By ahri 20200320
+## Powered By ahri 20200327

@@ -21,7 +21,7 @@ def image():
         return resp
     except Exception as ex:
         print(ex)
-        return redirect('/500')
+        return redirect('/image/500')
 
 
 @app.route('/image/upload', methods=['POST'])
@@ -43,17 +43,17 @@ def upload():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return redirect('/404')
+    return redirect('/image/404')
 
 
-@app.route('/404')
+@app.route('/image/404')
 def page_404():
-    return "<h1>404</h1>"
+    return "<h1>Image : 404</h1>"
 
 
-@app.route('/500')
+@app.route('/image/500')
 def page_500():
-    return "<h1>500</h1>"
+    return "<h1>Image : 500</h1>"
 
 
 if __name__ == '__main__':

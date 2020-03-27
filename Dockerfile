@@ -4,7 +4,6 @@ ADD app.py /project/app.py
 ADD Image /project/Image
 ADD requirements.txt /project/requirements.txt
 COPY pip.conf /etc/pip.conf
-COPY pip.conf /etc/pip.conf
 WORKDIR /project
 RUN pip3 install --no-cache-dir -r requirements.txt
 EXPOSE 9000
