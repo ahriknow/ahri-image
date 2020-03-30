@@ -2,8 +2,6 @@
 
 ## Get pictures through HTTP request. Custom text, graphics, colors, etc.
 
-### [Demo https://api.ahriknow.com/image/](https://api.ahriknow.com/image/)
-
 ## Provide picture library
 
 | 图片库名       | 图片数量 |

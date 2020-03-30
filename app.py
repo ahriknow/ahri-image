@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def index():
+def hello_world():
     return redirect('/image')
 
 
